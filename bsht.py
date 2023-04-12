@@ -62,3 +62,8 @@ while True:
         # тут любой код для работы на странице
         # тут любой код для работы на странице
         time.sleep(2)
+
+
+driver = uc.Chrome()
+driver.get('https://www.youtube.com/')
+

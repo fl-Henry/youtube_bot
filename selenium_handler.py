@@ -3,10 +3,10 @@ import sys
 import time
 import itertools
 import configparser
-import undetected_chromedriver as us
+import undetected_chromedriver as uc
 from selenium.webdriver.common.by import By
 from fake_useragent import UserAgent
-from seleniumwire import webdriver
+# from seleniumwire import webdriver
 from logging import Logger
 
 
@@ -55,7 +55,7 @@ class SeleniumHandler:
         if self.logger is not None:
             self.logger.debug("driver_path: %s", driver_path)
 
-        options = webdriver.ChromeOptions()
+        options = uc.ChromeOptions()
         if self.config.get('OPTIONS', 'headless') == 'YES':
             options.add_argument("--headless")
             if self.logger is not None:
@@ -84,7 +84,7 @@ class SeleniumHandler:
         #         self.logger.debug("user-agent is randomized")
 
         # Create new Instance of Browser
-        self.browser = webdriver.Chrome(main_version=107, chrome_options=options) # , seleniumwire_options=
+        self.browser = uc.Chrome(main_version=107, chrome_options=options) # , seleniumwire_options=
         print("Browser has been initialized!")
         if self.logger is not None:
             self.logger.info("Browser has been initialized!")
